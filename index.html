@@ -332,7 +332,7 @@ function renderDone(){
     <p class="big">Thank you${S.tech?", "+esc(S.tech.split(" ")[0]):""}.</p>
     ${submitResult?`<div class="status ${submitResult.ok?"ok":"bad"}" role="status">${submitResult.html}</div>`:""}
     ${S.durationMin?`<p class="hint">Time taken: ${S.durationMin} minute${S.durationMin===1?"":"s"}.</p>`:""}
-    <p class="hint">In the share sheet, choose Mail (or Messages) and send it to the address in the email you received. You can close this page after that.</p>
+    ${submitResult&&/shar/i.test(submitResult.html)?`<p class="hint">In the share sheet, choose Mail (or Messages) and send it to the address in the email you received. You can close this page after that.</p>`:`<p class="hint">Your answers and photos have been received. Nothing more to send. You can close this page.</p>`}
   </main><div class="nav"><button class="btn quiet" data-act="restart">Start a new survey</button><span class="spacer"></span></div>`,{pct:100,right:"Done"});
 }
 
